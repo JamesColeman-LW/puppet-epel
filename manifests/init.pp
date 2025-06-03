@@ -33,8 +33,6 @@ class epel (
   $epel_includepkgs                                    = undef,
   $epel_sslclientkey                                   = undef,
   $epel_sslclientcert                                  = undef,
-  Optional[String[1]] $epel_username                   = undef,
-  Optional[String[1]] $epel_password                   = undef,
   $epel_testing_mirrorlist                             = $epel::params::epel_testing_mirrorlist,
   $epel_testing_baseurl                                = $epel::params::epel_testing_baseurl,
   $epel_testing_failovermethod                         = $epel::params::epel_testing_failovermethod,
@@ -48,8 +46,6 @@ class epel (
   $epel_testing_includepkgs                            = undef,
   $epel_testing_sslclientkey                           = undef,
   $epel_testing_sslclientcert                          = undef,
-  Optional[String[1]] $epel_testing_username           = undef,
-  Optional[String[1]] $epel_testing_password           = undef,
   $epel_source_mirrorlist                              = $epel::params::epel_source_mirrorlist,
   $epel_source_baseurl                                 = $epel::params::epel_source_baseurl,
   $epel_source_failovermethod                          = $epel::params::epel_source_failovermethod,
@@ -63,8 +59,6 @@ class epel (
   $epel_source_includepkgs                             = undef,
   $epel_source_sslclientkey                            = undef,
   $epel_source_sslclientcert                           = undef,
-  Optional[String[1]] $epel_source_username            = undef,
-  Optional[String[1]] $epel_source_password            = undef,
   $epel_debuginfo_mirrorlist                           = $epel::params::epel_debuginfo_mirrorlist,
   $epel_debuginfo_baseurl                              = $epel::params::epel_debuginfo_baseurl,
   $epel_debuginfo_failovermethod                       = $epel::params::epel_debuginfo_failovermethod,
@@ -78,8 +72,6 @@ class epel (
   $epel_debuginfo_includepkgs                          = undef,
   $epel_debuginfo_sslclientkey                         = undef,
   $epel_debuginfo_sslclientcert                        = undef,
-  Optional[String[1]] $epel_debuginfo_username         = undef,
-  Optional[String[1]] $epel_debuginfo_password         = undef,
   $epel_testing_source_mirrorlist                      = $epel::params::epel_testing_source_mirrorlist,
   $epel_testing_source_baseurl                         = $epel::params::epel_testing_source_baseurl,
   $epel_testing_source_failovermethod                  = $epel::params::epel_testing_source_failovermethod,
@@ -93,8 +85,6 @@ class epel (
   $epel_testing_source_includepkgs                     = undef,
   $epel_testing_source_sslclientkey                    = undef,
   $epel_testing_source_sslclientcert                   = undef,
-  Optional[String[1]] $epel_testing_source_username    = undef,
-  Optional[String[1]] $epel_testing_source_password    = undef,
   $epel_testing_debuginfo_mirrorlist                   = $epel::params::epel_testing_debuginfo_mirrorlist,
   $epel_testing_debuginfo_baseurl                      = $epel::params::epel_testing_debuginfo_baseurl,
   $epel_testing_debuginfo_failovermethod               = $epel::params::epel_testing_debuginfo_failovermethod,
@@ -108,8 +98,6 @@ class epel (
   $epel_testing_debuginfo_includepkgs                  = undef,
   $epel_testing_debuginfo_sslclientkey                 = undef,
   $epel_testing_debuginfo_sslclientcert                = undef,
-  Optional[String[1]] $epel_testing_debuginfo_username = undef,
-  Optional[String[1]] $epel_testing_debuginfo_password = undef,
   Boolean $epel_gpg_managed                            = true,
   $os_maj_release                                      = $epel::params::os_maj_release,
 ) inherits epel::params {
@@ -135,8 +123,6 @@ class epel (
         includepkgs    => $epel_testing_includepkgs,
         sslclientkey   => $epel_testing_sslclientkey,
         sslclientcert  => $epel_testing_sslclientcert,
-        username       => $epel_testing_username,
-        password       => $epel_testing_password,
       }
 
       if $epel_gpg_managed {
@@ -165,8 +151,6 @@ class epel (
         includepkgs    => $epel_testing_debuginfo_includepkgs,
         sslclientkey   => $epel_testing_debuginfo_sslclientkey,
         sslclientcert  => $epel_testing_debuginfo_sslclientcert,
-        username       => $epel_testing_debuginfo_username,
-        password       => $epel_testing_debuginfo_password,
       }
 
       if $epel_gpg_managed {
@@ -195,8 +179,6 @@ class epel (
         includepkgs    => $epel_testing_source_includepkgs,
         sslclientkey   => $epel_testing_source_sslclientkey,
         sslclientcert  => $epel_testing_source_sslclientcert,
-        username       => $epel_testing_source_username,
-        password       => $epel_testing_source_password,
       }
 
       if $epel_gpg_managed {
@@ -225,8 +207,6 @@ class epel (
         includepkgs    => $epel_includepkgs,
         sslclientkey   => $epel_sslclientkey,
         sslclientcert  => $epel_sslclientcert,
-        username       => $epel_username,
-        password       => $epel_password,
       }
 
       if $epel_gpg_managed {
@@ -255,8 +235,6 @@ class epel (
         includepkgs    => $epel_debuginfo_includepkgs,
         sslclientkey   => $epel_debuginfo_sslclientkey,
         sslclientcert  => $epel_debuginfo_sslclientcert,
-        username       => $epel_debuginfo_username,
-        password       => $epel_debuginfo_password,
       }
 
       if $epel_gpg_managed {
@@ -285,8 +263,6 @@ class epel (
         includepkgs    => $epel_source_includepkgs,
         sslclientkey   => $epel_source_sslclientkey,
         sslclientcert  => $epel_source_sslclientcert,
-        username       => $epel_source_username,
-        password       => $epel_source_password,
       }
 
       if $epel_gpg_managed {
